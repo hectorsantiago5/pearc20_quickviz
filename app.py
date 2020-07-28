@@ -1,4 +1,3 @@
-
 import csv
 import os
 # from collections import OrderedDict
@@ -9,6 +8,7 @@ from werkzeug.utils import secure_filename
 # from _collections import defaultdict
 
 from flask import Flask, render_template, request, redirect, flash, url_for
+from errors import Upload_Error
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 # Function to connect our HTML file
-@app.route('/')
+@app.route('/random')
 def index():
     return render_template('index.html')
 
@@ -36,12 +36,12 @@ def import_covid_csv():
 
     with open('covid_file/us.csv', 'r') as covidfile:
         csv_read = csv.DictReader(covidfile)
-        #print(csv_read)
+        # print(csv_read)
         covid_list = []
 
         # For loop to get the last 7 days of Covid Data
         for j in list(reversed(list(csv_read)))[0:7]:
-            #print(j)
+            # print(j)
             date = j['date']
             cases = j['cases']
             deaths = j['deaths']
@@ -70,48 +70,55 @@ def allowed_file(filename):
 
 @app.route('/upload')
 def upload_file():
-    return render_template('data.html')
+    return render_template('index.html')
 
 
 # Function to get a data file and display the contents of it
-@app.route('/uploader', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def get_second_csv():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also submits an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('Successful')
-            return redirect(url_for('upload_file',
-                                    filename=filename))
+    #try:
+        if request.method == 'POST':
+            # check if the post request has the file part
+            if 'file' not in request.files:
+                flash('No file part')
+                return redirect(request.url)
+            file = request.files['file']
+            # if user does not select file, browser also submits an empty part without filename
+            if file.filename == '':
+                flash('No selected file')
+                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                flash('Successful')
+                return redirect(url_for('upload_file',
+                                        filename=filename))
+        return render_template('index.html')  #l=secure_filename(file.filename))
+    # except Upload_Error:
+    #     raise Exception('Upload Error')
 
-    def compute_second_csv():
-        pass
-    #     csv_data = []
-    #     with open('uploads/', filename) as second_file:
-    #         for i in list(reversed(list(second_file))):
-    #             # print(i)
-    #             cases = i['cases']
-    #             deaths = i['deaths']
-    #             rate = int(deaths) / int(cases)
-    #             csv_data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
-    #             print(csv_data)
-    #
+
+
+# def compute_second_csv():
+#    csv_data = []
+#     with open('uploads/', filename) as second_file:
+#         for i in list(reversed(list(second_file))):
+#             print(i)
+
+                # cases = i['cases']
+                # deaths = i['deaths']
+                # rate = int(deaths) / int(cases)
+                # csv_data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
+                # print(csv_data)
+
     # compute_second_csv()
-    #
-    # return render_template('data.html')
+
+
+#
+# return render_template('data.html')
 
 
 app.secret_key = 'some_secret_key'
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
-
+    app.run(host='192.168.1.233', port=8081, debug=True)
