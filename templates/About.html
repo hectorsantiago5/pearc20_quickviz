@@ -1,0 +1,277 @@
+
+Result Size: 1516 x 281
+<!DOCTYPE html>
+<html>
+<title>Project Charlie's Angels</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+body {
+  padding: 0px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+</style>
+
+<head>
+
+
+
+  <!-- Map Positioner-->
+
+
+
+</head>
+
+
+<body>
+​
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="index.html" class="w3-bar-item w3-button">Project Charlie's Angels</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+     <div class="w3-right w3-hide-small">
+      <a href="About.html" class="w3-bar-item w3-button">About Us</a>
+       <!--
+      <a href="#menu" class="w3-bar-item w3-button">Mapping Tool</a>
+
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      -->
+    </div>
+  </div>
+</div>
+​
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+
+</header>
+​
+<!-- Page content -->
+<div class="w3-content" style="max-width:1400px">
+
+  <div class="w3-row w3-padding-64" id="about">
+
+    <div class="w3-col m6 w3-padding-large">
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="Image from iOS.jpg" style="width:100%">
+  <div class="text">Hector Santiago III</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="Image from iOS (1).jpg" style="width:100%">
+  <div class="text">Cesar Monsalud III</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="IMG_20200727_111648.jpg" style="width:100%">
+  <div class="text">Lena Coker</div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+      </div>
+
+
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Who we are</h1> </br>
+      <h3 class="w3-center">Development Team: </br> Cesar, Hector, Helena, and Najm</h3> </br>
+      <h3 class="w3-center">Mentors: </br> Charlie and Chris</h3> </br>
+      <h3 class="w3-center">PEARC 20 Hackathon Team: Charlie's Angels</h3>
+      </br></br></br></br></br></br></br></br></br></br></br>
+
+      <p class="w3-large w3-text-grey w3-hide-medium"> We would like to thank our moms (and dads) for supporting us </p>
+    </div>
+  </div>
+
+  <h1 class="w3-center">The Mentors</h1>
+
+  <div class="w3-row w3-padding-64" id="Charlie Dey">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Charlie Dey</h1>
+      <h5>Charlie is the Director of Training and Professional Development with the User Services group at TACC with a background in web development and scientific computing. Charlie's responsibilities at TACC include organizing, developing content, and building curriculums for TACC's academic course selection taught in conjunction with several departments at the University of Texas at Austin, as well as for TACC's professional development and educational training. Prior to joining TACC, he worked as a Senior Application Developer for the Carle Foundation, and as a computer science instructor at Parkland College in Champaign, IL. He was also a member of a specialized application development team at the University of Illinois and has also been a contracted research consultant for NASA Ames Research Center, studying computational immunology and bioinformatics. Charlie holds a Bachelor's Degree concentrating in Computer Science and Biology from Eastern Illinois University, and certifications in 3D programing and visualization.</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="charlie-dey.jpg" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="Chris Lanclos">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Chris Lanclos</h1>
+      <h5>Christopher I. G. Lanclos is a computer science professor, a Ph. D. student, a lover of Christ, and an avid reader. His research focuses are Cyber Security, Software Engineering, and Computer Science education. Born in California, he relocated to Louisiana, where his family and roots are. He then made a life in Mississippi to pursue his dreams and further his education. He has a second home in Chicago. He enjoys ministry, teaching, comedy, anime (not cartoons), gaming, cooking, and the outdoors.</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="image.png" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+  <h1 class="w3-center">The Angels</h1>
+
+  <div class="w3-row w3-padding-64" id="Lena Coker">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Lena Coker</h1>
+      <h5>Lena Coker is an undergraduate at Washington State University Vancouver, where she majors in biology, neuroscience, and environmental science with minors in mathematics, zoology, chemistry, statistics, psychology, and environmental science and certifying in mathematical biology. She currently interns in the Community Ecology and the Conservation Biology laboratories on WSUV’s campus. After graduation, she plans to pursue a graduate degree in the fields of computational biology and neuroethology and behavioral ecology. Her passions include computational biology, community science, wildlife conservation, mathematical biology, behavioral modeling, and the biological basis of behavior in animals. Her favorite pastimes include reading and learning and practicing old world skills like basket weaving and blacksmithing.</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="unknown.png" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="Najm Mohammed">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Najm Mohamed</h1>
+      <h5>Najm's objective is to obtain his bachelor's degree in Computer Science and be able to qualify for an entry-level position related to his field of specialization. This will serve as a carrier growth and a change to his profession</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="mohamed.jpg" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="Hector Santiago III">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Hector Santiago III</h1>
+      <h5>Hector is an experienced Information Technology Analyst who has been accepted into Science Gateway's Coding Institute for Summer 2020 and is aiming to become a software engineer</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="santiago.jpg" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64" id="Cesar Monsalud III">
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Cesar Monsalud III</h1>
+      <h5>Cesar's objective is to revolutionize the world around him using technology and kindness</h5>
+    </div>
+    <div class="w3-col m6 w3-padding-large">
+<img class="w3-image" src="monsalud.jpg" alt="Hamburger Catering" width="1600" height="800">
+    </div>
+  </div>
+
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-dark-grey w3-padding-20">
+  <p>Powered by <a title="W3.CSS" target="_blank" class="w3-hover-text-green">Charlie's Angels</a></p>
+</footer>
+
+</body>
+</html>
