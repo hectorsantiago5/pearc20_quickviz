@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SGCI - Covid Research</title>
+</head>
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #8A0808;
+}
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 27.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+<body>
+<ul>
+ <li><a class="active" href="http://localhost:5001/">Home</a></li>
+  <li><a href="http://localhost:5001/covid">COVID</a></li>
+  <li><a href="http://localhost:5001/upload">Data</a></li>
+  <li><a href="http://localhost:5001/about">About</a></li>
+</ul>
+<div class="row">
+  <div class="column">
+
+  <tr><img src="../static/Covid.jpg" class="img-fluid" alt="Help protect yourself and others from COVID-19" style="width:300px;height:200px" title="Cloth Faces 1920x1080">
+      <h2>
+          Last Seven Days of COVID-19 Data:
+      </h2>
+      <p>
+        {% for e in l %}
+            {{e}}
+        {% endfor %}
+      </p>
+
+  </div>
+
+  <div class="column">
+      <h2>
+          COVID-19 Death Rate:
+      </h2>
+      <table style="width:65%">
+      <p>
+          {% for r in k %}
+          <tr>
+            <td>{{r}}</td>
+          </tr>
+          {% endfor %}
+      </p>
+      </table>
+
+    <h2> Covid-19 Symptoms</h2>
+    <p> 1. A loss of appetite, nausea, vomiting and diarrhea</p>
+    <p> 2. Loss of smell or taste</p>
+    <p> 3. Changes in skin</p>
+    <p> 4. Confusion (Mainly in the older population)</p>
+    <p> 5. Issues with the eyes</p>
+  </div>
+
+  <div class="column">
+ <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html?s_cid=bb-coronavirus-2019-ncov-NCIRD" title="image of SARS-CoV-2"><img src="http://www.cdc.gov/coronavirus/2019-ncov/images/Coronavirus-badge-300.png" style="width:400px; height:200px; border:0px;" alt="image of Coronavirus Disease 2019 (COVID-19)"/></a>
+    <img src="../static/cloth-faces-1920-1080.jpg" class="img-fluid" alt="Help protect yourself and others from COVID-19" style="width:400px;height:200px" title="Cloth Faces 1920x1080">
+  </div>
+</div>
+<div class="footer">
+  <p>If you have any questions or concerns contact us</p>
+</div>
+</body>
+</html>
