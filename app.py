@@ -8,7 +8,6 @@ from werkzeug.utils import secure_filename
 # from _collections import defaultdict
 
 from flask import Flask, render_template, request, redirect, flash, url_for
-from errors import Upload_Error
 
 app = Flask(__name__)
 
@@ -18,14 +17,49 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 # Function to connect our HTML file
-@app.route('/random')
+@app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/about')
-def about():
-    return render_template('aboutus.html')
+@app.route('/aboutus')
+def about_us():
+    return render_template('About.html')
+
+
+@app.route('/bar')
+def bar_page():
+    return render_template('bartool.html')
+
+
+@app.route('/horizontal')
+def horizontal_page():
+    return render_template('horizontalbartool.html')
+
+
+@app.route('/pie')
+def pie_page():
+    return render_template('pietool.html')
+
+
+@app.route('/line')
+def line_page():
+    return render_template('linetool.html')
+
+
+@app.route('/doughnut')
+def doughnut_page():
+    return render_template('doughnuttool.html')
+
+
+@app.route('/radar')
+def radar_page():
+    return render_template('radartool.html')
+
+
+@app.route('/polararea')
+def polar_area_page():
+    return render_template('polarareatool.html')
 
 
 # Function to get a COVID-19 data file and display the contents of it
@@ -74,7 +108,7 @@ def upload_file():
 
 
 # Function to get a data file and display the contents of it
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/map', methods=['GET', 'POST'])
 def get_second_csv():
     # try:
     if request.method == 'POST':
@@ -93,7 +127,7 @@ def get_second_csv():
             flash('Successful')
             return redirect(url_for('upload_file',
                                     filename=filename))
-    return render_template('index.html')  # l=secure_filename(file.filename))
+    return render_template('mapping.html')  # l=secure_filename(file.filename))
 
 
 # except Upload_Error:
