@@ -1,11 +1,11 @@
+import base64
 import csv
+import json
 import os
-# from collections import OrderedDict
-# from csv import DictReader
-# from typing import Dict, Union
+import urllib
 from urllib.request import urlretrieve as retrieve
 from werkzeug.utils import secure_filename
-# from _collections import defaultdict
+import requests
 
 from flask import Flask, render_template, request, redirect, flash, url_for
 
@@ -68,33 +68,34 @@ def import_covid_csv():
     url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv'
     retrieve(url, 'covid_file/us.csv')
 
-    with open('covid_file/us.csv', 'r') as covidfile:
-        csv_read = csv.DictReader(covidfile)
-        # print(csv_read)
-        covid_list = []
 
-        # For loop to get the last 7 days of Covid Data
-        for j in list(reversed(list(csv_read)))[0:7]:
-            # print(j)
-            date = j['date']
-            cases = j['cases']
-            deaths = j['deaths']
-            covid_list.append({'date': date, 'cases': cases, 'deaths': deaths})
+    # with open('covid_file/us.csv', 'r') as covidfile:
+    #     csv_read = csv.DictReader(covidfile)
+    #     # print(csv_read)
+    #     covid_list = []
+    #
+    #     # For loop to get the last 7 days of Covid Data
+    #     for j in list(reversed(list(csv_read)))[0:7]:
+    #         # print(j)
+    #         date = j['date']
+    #         cases = j['cases']
+    #         deaths = j['deaths']
+    #         covid_list.append({'date': date, 'cases': cases, 'deaths': deaths})
+    #
+    #     # Function to compute and display the COVID-19 death rate
+    #     def compute_csv():
+    #         data = []
+    #         with open('covid_file/us.csv', 'r') as covidfile:
+    #             csv_read = csv.DictReader(covidfile)
+    #             for i in list(reversed(list(csv_read))):
+    #                 # print(i)
+    #                 cases = i['cases']
+    #                 deaths = i['deaths']
+    #                 rate = int(deaths) / int(cases)
+    #                 data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
+    #                 return data
 
-        # Function to compute and display the COVID-19 death rate
-        def compute_csv():
-            data = []
-            with open('covid_file/us.csv', 'r') as covidfile:
-                csv_read = csv.DictReader(covidfile)
-                for i in list(reversed(list(csv_read))):
-                    # print(i)
-                    cases = i['cases']
-                    deaths = i['deaths']
-                    rate = int(deaths) / int(cases)
-                    data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
-                    return data
-
-        return render_template('covid.html', l=covid_list, k=compute_csv())
+        #return render_template('', l=covid_list, k=compute_csv())
 
 
 def allowed_file(filename):
@@ -104,12 +105,12 @@ def allowed_file(filename):
 
 @app.route('/upload')
 def upload_file():
-    return render_template('index.html')
+    return redirect(url_for('get_csv', filename=upload_file))
 
 
 # Function to get a data file and display the contents of it
-@app.route('/graph', methods=['GET', 'POST'])
-def get_second_csv():
+@app.route('/uploader', methods=['GET', 'POST'])
+def get_csv():
     # try:
     if request.method == 'POST':
         # check if the post request has the file part
@@ -127,7 +128,8 @@ def get_second_csv():
             flash('Successful')
             return redirect(url_for('upload_file',
                                     filename=filename))
-    return render_template('mapping.html')  # l=secure_filename(file.filename))
+
+    return render_template('data.html',keys=request.args.get('filename'))#, l=secure_filename(file.filename))
 
 
 # except Upload_Error:

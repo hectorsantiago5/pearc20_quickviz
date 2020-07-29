@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #8A0808;
+}
+</style>
+</head>
+<body>
+
+
+<ul>
+        <li><a class="active" href="http://localhost:5001/">Home</a></li>
+        <li><a href="http://localhost:5001/covid">COVID</a></li>
+        <li><a href="http://localhost:5001/upload">Data</a></li>
+
+</ul>
+
+<h2>Upload your file of Data</h2>
+<p>Click on the "Choose File" button to upload a file:</p>
+
+<form action= "http://localhost:5001/uploader" method = "GET"
+         enctype = "multipart/form-data">
+  <input type = "file" name = "filename" />
+  <input type = "submit"/>
+</form>
+
+<script language="javascript" type="text/javascript">
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+var scrt_var = urlParams.get('filename');
+openPage = function() {
+location.href = "http://localhost:8888/notebooks/data_vizualization.ipynb?filename="+scrt_var;
+}
+</script>
+
+<p>
+    <li><a href ="javascript:openPage()">Analyze with Jupyter</a></li>
+</p>
+
+<script>
+
+// define([
+//     '/Users/hectorsantiago/PycharmProjects/pearc20_quickviz/'
+// ], function(
+//     Jupyter
+// ) {
+//     function load_ipython_extension() {
+//         console.log(
+//             'This is the current notebook application instance:',
+//             Jupyter.notebook
+//         );
+//     }
+//
+//     return {
+//         load_ipython_extension: 'data_visualization.ipynb'
+//     };
+// });
+
+function myFunction() {
+  var x, text;
+
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+<div class="footer">
+  <p>If you have any questions or concerns contact us</p>
+</div>
+</body>
+</html>
