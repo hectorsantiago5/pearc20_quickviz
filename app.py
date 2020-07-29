@@ -108,7 +108,7 @@ def upload_file():
 
 
 # Function to get a data file and display the contents of it
-@app.route('/map', methods=['GET', 'POST'])
+@app.route('/graph', methods=['GET', 'POST'])
 def get_second_csv():
     # try:
     if request.method == 'POST':
