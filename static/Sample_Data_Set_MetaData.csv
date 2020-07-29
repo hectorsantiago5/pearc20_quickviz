@@ -1,0 +1,16 @@
+Data should be organized in columns rather than rows,,
+Data must be organized in a .csv file,,
+"Data points must be contained within separate cells, not the same cell",,
+Data categories shoud be clearly labelled for ease of use,,
+,,
+Sample Data Metadata,,
+Participant Number,,
+Age,"in years, between 20-60",
+Gender,"male as M, female as F, other as O",
+Question 1,,Where Y = Yes and N = No
+Question 2,,"Where 5 = strongly agree, 4 = somewhat agree, 3 = neutral, 2= somewhat disagree, 1 = strongly disagree, 0 = does not apply"
+Question 3,,"Where 5 = strongly agree, 4 = somewhat agree, 3 = neutral, 2= somewhat disagree, 1 = strongly disagree, 0 = does not apply"
+Question 4,,"Where 5 = strongly agree, 4 = somewhat agree, 3 = neutral, 2= somewhat disagree, 1 = strongly disagree, 0 = does not apply"
+Question 5,,Where Y = Yes and N = No
+Longitude,Must be in separate cell than lattittude,
+Lattitude,Must be in separate cell than longitude,

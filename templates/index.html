@@ -66,6 +66,71 @@ body {
    color: white;
    text-align: center;
 }
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
 </style>
 
 <head>
@@ -130,23 +195,16 @@ function myFunction() {
       <h1 class="w3-center">Welcome to The Charlie's Angels Project </h1>
  <p class="w3-large">We are so happy to have you check out our project today! Our goal is to create something that will
  allow people to upload files and visualize the data that is inside of it.<br><br>
- Use the dropdown menu to the right to pick the visualization tool that you want to use and get started!</p>
+ Pick the tool that you want on the right to get started!!</p>
 <center><a href="https://github.com/hectorsantiago5/pearc20_quickviz" target="_blank"><img src="../static/github_PNG20.png" width="100" height="100"></a></center>
     </div>
     <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
-  <div class="dropdown">
-  <button class="dropbtn">Pick Your Tool!</button>
-  <div class="dropdown-content">
-    <a href="http://localhost:63342/pearc20_quickviz/templates/mapping.html?_ijt=eq6u42q7mftj2luhck5v1bkp73">Mapping Tool</a>
-    <a href="http://localhost:5001/bar">Bar Tool</a>
-    <a href="http://localhost:5001/horizontal">Horizontal Bar Tool</a>
-      <a href="http://localhost:5001/pie">Pie Tool</a>
-      <a href="http://localhost:5001/line">Line Tool</a>
-      <a href="http://localhost:5001/doughnut">Doughnut Tool</a>
-      <a href="http://localhost:5001/radar">Radar Tool</a>
-      <a href="http://localhost:5001/polararea">PolarArea Tool</a>
-  </div>
-</div>
+        <form action="http://localhost:63342/pearc20_quickviz/templates/mapping.html?_ijt=eq6u42q7mftj2luhck5v1bkp73">
+        <button class="button button2">Mapping Data</button>
+</form>
+        <form action="http://localhost:5001/uploader">
+        <button class="button button3">Graphing Data</button>
+            </form>
     </div>
   </div>
 
