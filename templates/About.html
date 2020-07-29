@@ -29,7 +29,7 @@ img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 500px;
   position: relative;
   margin: auto;
 }
@@ -91,7 +91,15 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
-
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
 </style>
 
 <head>
@@ -109,7 +117,7 @@ img {vertical-align: middle;}
 ​
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:4px;">
+  <div class="w3-bar w3-black w3-padding w3-card" style="letter-spacing:2px;">
     <a href="http://localhost:5001/" class="w3-bar-item w3-button">Project Charlie's Angels</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
      <div class="w3-right w3-hide-small">
@@ -124,12 +132,12 @@ img {vertical-align: middle;}
 </div>
 ​
 <!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+<header class="w3-display-container w3-content w3-wide" style="max-width:300px;min-width:500px" id="home">
 
 </header>
 ​
 <!-- Page content -->
-<div class="w3-content" style="max-width:1400px">
+<div class="w3-content" style="max-width:1300px">
 
   <div class="w3-row w3-padding-64" id="about">
 
@@ -195,7 +203,7 @@ function showSlides() {
       <h3 class="w3-center">Development Team: </br> Cesar, Hector, Helena, and Najm</h3> </br>
       <h3 class="w3-center">Mentors: </br> Charlie and Chris</h3> </br>
       <h3 class="w3-center">PEARC 20 Hackathon Team: Charlie's Angels</h3>
-      </br></br></br></br></br></br></br></br></br></br></br>
+      </br></br></br></br></br></br>
 
       <p class="w3-large w3-text-grey w3-hide-medium"> We would like to thank our moms (and dads) for supporting us </p>
     </div>
@@ -204,70 +212,71 @@ function showSlides() {
   <h1 class="w3-center">The Mentors</h1>
 
   <div class="w3-row w3-padding-64" id="Charlie Dey">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Charlie Dey</h1>
       <h5>Charlie is the Director of Training and Professional Development with the User Services group at TACC with a background in web development and scientific computing. Charlie's responsibilities at TACC include organizing, developing content, and building curriculums for TACC's academic course selection taught in conjunction with several departments at the University of Texas at Austin, as well as for TACC's professional development and educational training. Prior to joining TACC, he worked as a Senior Application Developer for the Carle Foundation, and as a computer science instructor at Parkland College in Champaign, IL. He was also a member of a specialized application development team at the University of Illinois and has also been a contracted research consultant for NASA Ames Research Center, studying computational immunology and bioinformatics. Charlie holds a Bachelor's Degree concentrating in Computer Science and Biology from Eastern Illinois University, and certifications in 3D programing and visualization.</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/charlie-dey.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/charlie-dey.jpg" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
   <div class="w3-row w3-padding-64" id="Chris Lanclos">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Chris Lanclos</h1>
       <h5>Christopher I. G. Lanclos is a computer science professor, a Ph. D. student, a lover of Christ, and an avid reader. His research focuses are Cyber Security, Software Engineering, and Computer Science education. Born in California, he relocated to Louisiana, where his family and roots are. He then made a life in Mississippi to pursue his dreams and further his education. He has a second home in Chicago. He enjoys ministry, teaching, comedy, anime (not cartoons), gaming, cooking, and the outdoors.</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/image.png" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/image.png" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
   <h1 class="w3-center">The Angels</h1>
 
   <div class="w3-row w3-padding-64" id="Lena Coker">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Lena Coker</h1>
       <h5>Lena Coker is an undergraduate at Washington State University Vancouver, where she majors in biology, neuroscience, and environmental science with minors in mathematics, zoology, chemistry, statistics, psychology, and environmental science and certifying in mathematical biology. She currently interns in the Community Ecology and the Conservation Biology laboratories on WSUV’s campus. After graduation, she plans to pursue a graduate degree in the fields of computational biology and neuroethology and behavioral ecology. Her passions include computational biology, community science, wildlife conservation, mathematical biology, behavioral modeling, and the biological basis of behavior in animals. Her favorite pastimes include reading and learning and practicing old world skills like basket weaving and blacksmithing.</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/unknown.png" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/unknown.png" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
   <div class="w3-row w3-padding-64" id="Najm Mohammed">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Najm Mohamed</h1>
       <h5>Najm's objective is to obtain his bachelor's degree in Computer Science and be able to qualify for an entry-level position related to his field of specialization. This will serve as a carrier growth and a change to his profession</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/mohamed.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/mohamed.jpg" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
   <div class="w3-row w3-padding-64" id="Hector Santiago III">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Hector Santiago III</h1>
-      <h5>Hector is an experienced Information Technology Analyst who has been accepted into Science Gateway's Coding Institute for Summer 2020 and is aiming to become a software engineer</h5>
+      <h5>Hector Santiago is a rising Senior at Winston-Salem State University majoring in Computer Science. He looks forward to also achieving his Master of Computer Science at Winston-Salem State University and obtaining a job as a Software Engineer working with Java or Python. He hopes to continue gaining knowledge and experience through school, work and internships. He is looking forward to implementing the knowledge gained from those areas in the future for a company.</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/santiago.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/santiago.jpg" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
   <div class="w3-row w3-padding-64" id="Cesar Monsalud III">
-    <div class="w3-col m6 w3-padding-large">
+    <div class="w3-threequarter m6 w3-padding-large">
       <h1 class="w3-center">Cesar Monsalud III</h1>
       <h5>Cesar's objective is to revolutionize the world around him using technology and kindness</h5>
     </div>
-    <div class="w3-col m6 w3-padding-large">
-<img class="w3-image" src="../static/monsalud.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-quarter{float:left;width:100%} m6 w3-padding-large">
+<img class="w3-image" src="../static/monsalud.jpg" alt="Hamburger Catering" width="300" height="800">
     </div>
   </div>
 
 </div>
 <!-- Footer -->
-<footer class="w3-center w3-dark-grey w3-padding-20">
+<hr>
+<footer>
   <p>Powered by <a title="W3.CSS" target="_blank" class="w3-hover-text-green">Charlie's Angels</a></p>
 </footer>
 
