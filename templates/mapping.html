@@ -18,30 +18,36 @@
     <center><h2>Upload your file of Data</h2></center>
     <center><p>Click on the "Choose File" button to upload a file:</p></center>
 
-    <center><form action="http://192.168.1.233:8081/" method = "POST"
+    <center><form action="" method = "POST"
              enctype = "multipart/form-data">
-      <input type = "file" name = "file" />
-      <input type = "submit"/>
+      <input accept=".xlsx, .xls, .csv" type = "file" name = "file" id="myFile" onChange = "computeData()"/>
+
     </form></center><br>
+
+
 
     <center><div id="main" style="width: 1200px; height: 600px;"></div></center>
 
 
     <script>
 
-        function getParameter(parameterName){
-
-                let parameters = new URLSearchParams(window.location.search);
-                return parameters.get(parameterName);
-
-            }
-
 
         var dom = document.getElementById('main');
         var chart = echarts.init(dom);
 
-        $.get(getParameter("filename"), function (data) {
-            var lines = data.split('\n');
+        //$.get("./time_series_covid19_confirmed_US.csv", function (data) {
+            function computeData(){
+            console.log( "hello" )
+
+            var data = document.getElementById("myFile").files[0];
+            console.log(data)
+
+                var fileReader = new FileReader();
+                fileReader.onload = function(fileLoadedEvent){
+                console.log(fileLoadedEvent)
+                var textFromFileLoaded = fileLoadedEvent.target.result;     //document.getElementById("inputTextToSave").value = textFromFileLoaded;
+
+            var lines = textFromFileLoaded.split('\n');
 
             var result = [];
             for (var i = 1; i < lines.length; ++i) {
@@ -102,7 +108,14 @@
                 },
                 options: options
             })
-        });
+                };
+                fileReader.readAsText(data, "UTF-8");
+
+
+
+
+
+        };
 
         chart.setOption({
             baseOption: {
