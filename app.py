@@ -16,50 +16,16 @@ ALLOWED_EXTENSIONS = {'csv'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-# Function to connect our HTML file
+# Function to connect our home HTML file
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
+# Function to connect our about us HTML file
 @app.route('/aboutus')
 def about_us():
     return render_template('About.html')
-
-
-@app.route('/bar')
-def bar_page():
-    return render_template('bartool.html')
-
-
-@app.route('/horizontal')
-def horizontal_page():
-    return render_template('horizontalbartool.html')
-
-
-@app.route('/pie')
-def pie_page():
-    return render_template('pietool.html')
-
-
-@app.route('/line')
-def line_page():
-    return render_template('linetool.html')
-
-
-@app.route('/doughnut')
-def doughnut_page():
-    return render_template('doughnuttool.html')
-
-
-@app.route('/radar')
-def radar_page():
-    return render_template('radartool.html')
-
-
-@app.route('/polararea')
-def polar_area_page():
-    return render_template('polarareatool.html')
 
 
 # Function to get a COVID-19 data file and display the contents of it
@@ -69,40 +35,13 @@ def import_covid_csv():
     retrieve(url, 'covid_file/us.csv')
 
 
-    # with open('covid_file/us.csv', 'r') as covidfile:
-    #     csv_read = csv.DictReader(covidfile)
-    #     # print(csv_read)
-    #     covid_list = []
-    #
-    #     # For loop to get the last 7 days of Covid Data
-    #     for j in list(reversed(list(csv_read)))[0:7]:
-    #         # print(j)
-    #         date = j['date']
-    #         cases = j['cases']
-    #         deaths = j['deaths']
-    #         covid_list.append({'date': date, 'cases': cases, 'deaths': deaths})
-    #
-    #     # Function to compute and display the COVID-19 death rate
-    #     def compute_csv():
-    #         data = []
-    #         with open('covid_file/us.csv', 'r') as covidfile:
-    #             csv_read = csv.DictReader(covidfile)
-    #             for i in list(reversed(list(csv_read))):
-    #                 # print(i)
-    #                 cases = i['cases']
-    #                 deaths = i['deaths']
-    #                 rate = int(deaths) / int(cases)
-    #                 data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
-    #                 return data
-
-        #return render_template('', l=covid_list, k=compute_csv())
-
-
+# Function to only allow CSV files
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# Function to redirect filename
 @app.route('/upload')
 def upload_file():
     return redirect(url_for('get_csv', filename=upload_file))
@@ -130,28 +69,6 @@ def get_csv():
                                     filename=filename))
 
     return render_template('data.html',keys=request.args.get('filename'))#, l=secure_filename(file.filename))
-
-
-# except Upload_Error:
-#     raise Exception('Upload Error')
-
-
-# def compute_second_csv():
-#    csv_data = []
-#     with open('uploads/', filename) as second_file:
-#         for i in list(reversed(list(second_file))):
-#             print(i)
-
-# cases = i['cases']
-# deaths = i['deaths']
-# rate = int(deaths) / int(cases)
-# csv_data.append({'cases': cases, 'deaths': deaths, 'rate': rate})
-# print(csv_data)
-
-# compute_second_csv()
-
-#
-# return render_template('data.html')
 
 
 app.secret_key = 'some_secret_key'
