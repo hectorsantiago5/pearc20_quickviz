@@ -1,11 +1,6 @@
-import base64
-import csv
-import json
 import os
-import urllib
 from urllib.request import urlretrieve as retrieve
 from werkzeug.utils import secure_filename
-import requests
 
 from flask import Flask, render_template, request, redirect, flash, url_for
 
@@ -16,26 +11,19 @@ ALLOWED_EXTENSIONS = {'csv'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-# Function to connect our home HTML file
+# Function to display our home page
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-# Function to connect our about us HTML file
+# Function to display our about us page
 @app.route('/aboutus')
 def about_us():
     return render_template('About.html')
 
 
-# Function to get a COVID-19 data file and display the contents of it
-@app.route('/covid')
-def import_covid_csv():
-    url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv'
-    retrieve(url, 'covid_file/us.csv')
-
-
-# Function to only allow CSV files
+# Function to only allow CSV file types
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -47,10 +35,13 @@ def upload_file():
     return redirect(url_for('get_csv', filename=upload_file))
 
 
-# Function to get a data file and display the contents of it
+# Function to get/upload a user data file in the /uploads directory to then analyze in Jupyter Notebooks
+# This function also gets a sample COVID-19 data file from The NY Times Github repo
 @app.route('/uploader', methods=['GET', 'POST'])
 def get_csv():
-    # try:
+    url = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv'
+    retrieve(url, 'covid_file/us.csv')
+
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -68,11 +59,11 @@ def get_csv():
             return redirect(url_for('upload_file',
                                     filename=filename))
 
-    return render_template('data.html',keys=request.args.get('filename'))#, l=secure_filename(file.filename))
+    return render_template('data.html', keys=request.args.get('filename'))
 
 
 app.secret_key = 'some_secret_key'
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 # '192.168.1.233' port=8081
