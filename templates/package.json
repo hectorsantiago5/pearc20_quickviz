@@ -11,7 +11,7 @@
   "dependencies": {
     "echarts": "^4.8.0",
     "echarts-leaflet": "^1.1.0",
-    "http-server": "^0.12.3",
+    "http-server": "^14.1.1",
     "jquery": "^3.5.1",
     "leaflet": "^1.6.0"
   }
